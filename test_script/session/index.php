@@ -1,10 +1,11 @@
+<link rel="stylesheet" href="style.css">
 <?php
 session_start();
 include('db.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!=""){
 $code = $_POST['code'];
-$result = $con->query("SELECT * FROM products WHERE code = {$code}");
+$result = $con->query("SELECT * FROM products WHERE code = '{$code}'");
 $row = $result->fetch(PDO::FETCH_ASSOC);
 $name = $row['name'];
 $code = $row['code'];
@@ -39,3 +40,37 @@ if(empty($_SESSION["shopping_cart"])) {
 	}
 }
 ?>
+
+<?php
+if(!empty($_SESSION["shopping_cart"])) {
+$cart_count = count(array_keys($_SESSION["shopping_cart"]));
+?>
+<div class="cart_div">
+<a href="cart.php"><img src="cart-icon.png" /> Cart<span>
+<?php echo $cart_count; ?></span></a>
+</div>
+<?php
+}
+?>
+
+<?php
+$result = $con->query("SELECT * FROM `products`");
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<div class='product_wrapper'>
+    <form method='post' action=''>
+    <input type='hidden' name='code' value=".$row['code']." />
+    <div class='image'><img src='".$row['image']."' /></div>
+    <div class='name'>".$row['name']."</div>
+    <div class='price'>$".$row['price']."</div>
+    <button type='submit' class='buy'>Buy Now</button>
+    </form>
+    </div>";
+        }
+$con = '';
+?>
+
+<div style="clear:both;"></div>
+
+<div class="message_box" style="margin:10px 0px;">
+<?php echo $status; ?>
+</div>
