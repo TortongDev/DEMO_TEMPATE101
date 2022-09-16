@@ -1,0 +1,39 @@
+<style>
+	html,body {
+		padding: 0px;
+		margin: 0px;
+	}
+	.loadding {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		position: fixed;
+		justify-content: center;
+		align-items: center;
+		background-color: rgba(1,0,0,0.7);
+	}
+
+	.loadding-info {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		animation-name: animation;
+		animation-duration: 0.8s;
+		width: 100px;
+		border-radius: 50%;
+		border-right: 4px solid green;
+		border-left: 4px solid red;
+		height: 100px;
+		animation-iteration-count: infinite;
+	}
+		@keyframes	animation {
+		from {transform: rotate(0deg);}
+		to {transform: rotate(360deg);}
+	}
+</style>
+<div class="loadding">
+	<div class="loadding-info"></div>
+</div>
+<script>
+
+</script>
