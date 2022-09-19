@@ -1,4 +1,4 @@
-ErrorDocument 404 /vote_trinee/notpage
+ErrorDocument 404 /TEMPLATEPHP/page_not_false.html
 RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-d
