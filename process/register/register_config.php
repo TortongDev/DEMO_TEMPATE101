@@ -40,10 +40,10 @@
 			return $this->status;
 		
 		
-		
+		}
 		
 		// used function
-		public function save(){
+		public function saved(){
 			db::insertt("insert into usernameTest (username,password,age,status) values (?,?,?,?)",array($this->username,$this->password,$this->age,$this->status));
 		}
 		public $id;

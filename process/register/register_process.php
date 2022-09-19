@@ -11,6 +11,13 @@
 	*/
 	
 		$upd = new registers;
-		$upd->deletes(78);
+
+		$upd->setUsername($_POST['username']);
+		$upd->setPassword($_POST['password']);
+		$upd->setAge(22);
+		$upd->setStatus($_POST['status']);
+		
+		$upd->saved();
+
 
 ?>
