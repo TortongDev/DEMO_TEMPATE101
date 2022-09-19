@@ -48,7 +48,6 @@
 		}
 		
 		
-		
 		public static function select_num_row($sql,$param){	
 			$select = self::$conn->prepare($sql);
 			$select->execute($param);
